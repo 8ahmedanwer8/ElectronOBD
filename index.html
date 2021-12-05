@@ -1,0 +1,184 @@
+<!-- <html>
+  <body>
+    <div class = "screen">
+      <div class = "gui"></div>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+<!--     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'"> -->
+    <link href="./styles.css" rel="stylesheet">
+    <script src="linkers/python-shell.js"></script>
+
+
+    <title>ElectronOBD</title>
+  </head>
+
+  <body id = "body">
+    <section class = "top">
+      <div class = "content">
+        <button class = "btn" id = "startBtn">Start</button>
+        <button class = "btn" id = "csvBtn">Export to CSV</button>        
+
+        <div class ="shade-slider">
+          <label class="switch">
+            <input type="checkbox" checked id = "shadeCheck">
+            <span class="slider round"></span>
+          </label>
+        </div> 
+        <div class ="info-slider">
+          <label class="switch" >
+            <input type="checkbox" checked id = "descCheck">
+            <span class="slider round"></span>
+          </label>
+        </div> 
+      </div>
+    </section>
+
+
+    <div id="modal" class="modal">
+      <div class="modal-content" id = "modalContent">
+        <span class="close">&times;</span>
+          <div class="large-grid-item"><h1>0000</h1><h2>RPM</h2><h3>Waiting for connection to vehicle</h3></div>
+      </div>
+    </div>
+
+    <section class = "gui" id = "gui">
+      <div class ="content">
+        <div class = "welcome-page" id = "welcomePage">
+          <h1>Offline/Not Connected to vehicle</h1><h3>Also, please focus on driving only. Have another person help you avoid to multitasking while using ElectronOBD.</h3><p>Made by a Confused Developer</p>
+        </div>
+        <div class="grid-container" id = "grid">
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+          <div class="grid-item"><h1>0000</h1><h2>Unit</h2><h3></h3></div>                
+                          
+        </div>
+      </div>
+    </section>  
+
+    <section class = "bottom">
+      <div class = "content">
+          <li><p><a class="arrowDark left prev-btn" id = "prevBtn"></a></p></li>
+          <li><input type="text" value ="Not Connected" readonly class = "status-bar" id="statusBar"></li>    
+          <li><p><a class="arrowDark right next-btn" id = "nextBtn"></a></p></li>
+      </div>
+    </section>
+
+    <script src="./renderer.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,347 @@
+/* styles.css */
+@font-face {
+  font-family: 'Inter-VariableFont_slntwght';
+  src:url('../plugins/fonts/Inter-VariableFont_slntwght.eot');
+  src:url('../plugins/fonts/Inter-VariableFont_slntwght.eot?#iefix') format('embedded-opentype'),
+      url('../plugins/fonts/Inter-VariableFont_slntwght.woff') format('woff'),
+      url('../plugins/fonts/Inter-VariableFont_slntwght.woff2') format('woff2'),
+      url('../plugins/fonts/Inter-VariableFont_slntwght.ttf') format('truetype'),
+      url('../plugins/fonts/Inter-VariableFont_slntwght.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* .body{
+    overflow-y: hidden; 
+    overflow-x: hidden;} */
+
+body{
+    font-family: "Inter", sans-serif;
+    background-color: rgb(54, 57, 63);
+}
+
+/* main gui */
+.gui{
+    position: relative;
+    height: 500px;
+    width: 1000px;
+    background: rgb(47, 49, 54);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gui .content .welcome-page{
+    position: absolute;
+    display: block;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+.gui .content .welcome-page p{
+    font-size: 12px;
+}
+
+.gui .content .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows:minmax(125px,auto);
+}
+
+
+.gui .content .grid-container .grid-item{
+    display: block;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.gui .content .grid-container .grid-item h1{
+    align-items: center;
+    font-size: 4.5em;
+    margin: 0;
+}
+
+.gui .content .grid-container .grid-item h2{
+    align-items: center;
+    font-size: 1em;
+    margin: 0;
+}
+.gui .content .grid-container .grid-item h3{
+    position: absolute;
+    top: 35%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    }
+
+/* main gui */
+
+
+
+/* top part */
+.top .content{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.top .content .btn{
+    outline: none;
+    margin: 1rem;
+    padding: 16px 30px;
+    border: 0;
+    line-height: 1;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    background: #47c918;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.top .content .btn:hover{
+    background: #318c10;
+}
+
+.top .content .btn:active{
+    background: #23640c;
+}
+
+.top .content .shade-slider{
+    display: inline-block;
+    float: right;
+    margin: 1rem;    
+}
+
+.top .content .info-slider{
+    display: inline-block;
+    float: right;
+    margin: 1rem;
+}
+
+.top .content .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.top .content .switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #47c918;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #47c918;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* top part*/
+
+
+/* bottom part*/
+
+.bottom .content{
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  user-select: none;  
+}
+
+.bottom .content .next-btn{
+    display: inline-block;
+}
+.bottom .content .prev-btn{
+    display: inline-block;
+}
+
+.bottom .content a:hover{
+    opacity: 0.7 !important;    
+}
+
+.bottom .content a:active{
+    opacity:  0.5 !important;    
+}
+
+.arrowDark{
+  border: solid white;
+  border-width: 0 4px 4px 0;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.arrowLight{
+  border: solid black;
+  border-width: 0 4px 4px 0;
+  padding: 3px;
+  cursor: pointer;
+}
+    
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.bottom .content input{
+  caret-color: auto;
+  cursor: default;
+  user-select: none;
+}
+
+.bottom .content .status-bar{
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 25px;
+    border: solid grey;
+    margin-right: 300px;
+    margin-left: 300px;    
+    width: 450px;   
+}
+
+.bottom .content li {
+  display: inline-block;
+  font-size: 20px;
+  padding: 0px;
+}
+
+
+/* bottom part*/
+
+
+/*Pop-up for grid items*/
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  color: white;
+  background-color: rgb(54, 57, 63);
+  margin:15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  width: 40%;  
+  height: 50%;  
+    
+}
+
+.modal-content .large-grid-item{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    margin:15% auto;
+
+}
+
+.modal-content .large-grid-item h1{
+    align-items: center;
+    font-size: 5em;
+    margin: 0;
+
+}
+.modal-content .large-grid-item h2{
+    font-size: 2.5em;
+    margin: 0;
+}
+.modal-content .large-grid-item h3{
+    font-size: 3em;
+    position: absolute;
+    top: 10%;  
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+@media (max-width:500px){
+    .modal-content .large-grid-item h1{
+        font-size: 2.5rem;
+        
+    }
+    .modal-content .large-grid-item h2{
+        font-size: 2rem;
+
+    }
+    .modal-content .large-grid-item h3{
+        font-size: 2rem;
+    }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #ddd;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*Pop-up for grid items*/
