@@ -80,19 +80,19 @@ Array.from(gridItem).forEach((gridItem)=> {
 //Pop-up for grid items with live data update
 gridItem.forEach((gridItem,i)=> {
   gridItem.addEventListener("click", function(){
-  if (!descCheck.checked){ 
+  if (!descCheck.checked){//shows desc 
     largeGridItem[0].firstChild.nextSibling.style.opacity = "0"; 
     largeGridItem[0].firstChild.style.opacity = "0";
     largeGridItem[0].firstChild.nextSibling.nextSibling.style.opacity = "1";  
-    indexOfLargeGridItem = i //for live update when gridItem is clicked, we send index of gridItem to view it on largeGridItem
+    indexOfLargeGridItem = i //for large display when gridItem is clicked, we send index of gridItem to view it on largeGridItem
 
   }
-  if (descCheck.checked){  
+  if (descCheck.checked){//shows data with units
     largeGridItem[0].firstChild.nextSibling.style.opacity = "1"; 
     largeGridItem[0].firstChild.style.opacity = "1";
     largeGridItem[0].firstChild.nextSibling.nextSibling.style.opacity = "0";
     largeGridItem[0].firstChild.nextSibling.textContent = gridItem.firstChild.nextSibling.textContent;
-    indexOfLargeGridItem = i //for live update when gridItem is clicked, we send index of gridItem to view it on largeGridItem
+    indexOfLargeGridItem = i //for large display when gridItem is clicked, we send index of gridItem to view it on largeGridItem
   }
   modal.style.display = "block";
   span.onclick = function() {

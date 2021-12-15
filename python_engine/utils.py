@@ -350,5 +350,4 @@ def csvExporter(labels, data):
 	desktop_path = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
 	# desktop = os.path.join(os.path.join(os.path.expanduser('~')), 'Desktop') //for linux
 	df.to_csv(f'{desktop_path}/ElectronOBD {date}.csv', encoding='utf-8')
-	# df.to_csv('f.csv', encoding='utf-8')
 	return df

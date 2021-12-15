@@ -28,9 +28,9 @@ def getCurrentData(connection,supportedCommands):
 	for i in range(len(supportedCommands)):
 		response = connection.query(supportedCommands[i])
 		try:
-			# respond = response.value.magnitude
-			# respond = respond(respond,3) #round those long decimal places
-			readings.append(response.value.magnitude)
+			response_rounded = response.value.magnitude
+			response_rounded = round(response_rounded,3) #round those long decimal places
+			readings.append(response_rounded)
 		except:
 			readings.append(str(response.value))
 	return readings
@@ -39,7 +39,7 @@ def getCurrentData(connection,supportedCommands):
 def addUnitsToCSVHeading(names,units): #function that creates nice headings with both sensor name and the unit
 	output = []
 	if (len(names) == len(units)):
-		for i in names:
+		for i in range(len(names)):
 			output.append(names[i] + " " + "(" + units[i] + ")")
 	return output
 
@@ -52,13 +52,12 @@ def main():#worker thread gets data for us while main thread keeps checking for 
 
 	# obd.logger.setLevel(obd.logging.DEBUG) # enables all debug information
 	
-	connection = obd.OBD()
-	supportedCommands,supportedCommandsNames, supportedCommandsUnits, _ = getSupported(connection)
+	# connection = obd.OBD()
+	# supportedCommands,supportedCommandsNames, supportedCommandsUnits, _ = getSupported(connection)
 
-	supportedCommandsNames.insert(0, "TIME")
-	heading.append(supportedCommandsNames)
+	# supportedCommandsNames.insert(0, "TIME")
+	# heading.append(supportedCommandsNames)
 
-    '''
 	connection = obd.OBD()
 	supportedCommands,supportedCommandsNames, supportedCommandsUnits, _ = getSupported(connection)
 
@@ -68,9 +67,8 @@ def main():#worker thread gets data for us while main thread keeps checking for 
 
 	# heading.insert(0,"TIME") #adds time column
 
-    '''
-	
-	while True:
+		
+	while True:	
 		# time.sleep(1)
 		output = getCurrentData(connection,supportedCommands) #output variable is the data collected in one iteration
 

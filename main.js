@@ -4,11 +4,11 @@ const path = require('path')
 const ipc = ipcMain
 let {PythonShell} = require('python-shell')
 
-let shell1 = new PythonShell('python_engine/getMetadata.py', {
-    pythonOptions: ['-u']
-}); //this shell variable declaration here is a game changer
+// let shell1 = new PythonShell('python_engine/getMetadata.py', {
+//     pythonOptions: ['-u']
+// }); //this shell variable declaration here is a game changer
 
-let shell2 = new PythonShell('scrap_files_ignore/pseudoGetData.py', {
+let shell1 = new PythonShell('getData.py', {
     pythonOptions: ['-u'], 
     mode: 'json'
 }); //this shell variable declaration here is a game changer
@@ -191,10 +191,10 @@ var optionsConnect = {
 function getMetaData() {
     return new Promise((resolve, reject)=>{
         ipcMain.on('getMetadata', function(event){
-          PythonShell.run('scrap_files_ignore/pseudoGetMetaData.py', optionsConnect, function (err, results) {
+          PythonShell.run('python_engine/getMetadata.py', optionsConnect, function (err, results) {
             if (err) throw err;
             console.log(results)
-            event.sender.send('getMetadata', results[0])
+            event.sender.send('python_engine/getMetadata', results[0])
             resolve()
           }); 
         })      
@@ -205,7 +205,7 @@ function getData() {
     return new Promise((resolve, reject)=>{
         ipcMain.on('start', function(event){
           console.log("got the click to start the script")
-          shell2.on('message', function (message) {
+          shell1.on('message', function (message) {
             console.log("now returning message from thescript")
             console.log(message);
             // ipcMain.send('start', message)
@@ -225,7 +225,7 @@ function getData() {
 function exportCSV() {
     return new Promise((resolve, reject)=>{
         ipcMain.on('stop', function(event){
-          shell2.send("end data collection and export to csv!")  
+          shell1.send("end data collection and export to csv!")  
           event.sender.send('stop', "Exported successfully as a CSV")
           resolve()
         })      
@@ -234,7 +234,7 @@ function exportCSV() {
 
 function endScript() {
     return new Promise((resolve, reject)=>{
-      shell2.end(function (err) {
+      shell1.end(function (err) {
           console.log("finished data collection. disconnected from car, probably.")
       });  
       resolve('finished')   
