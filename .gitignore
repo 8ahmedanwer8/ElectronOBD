@@ -4,6 +4,10 @@
 # Compiled class file
 *.class
 
+
+# Python byte files
+*.pyc
+
 # Log file
 *.log
 
