@@ -9,8 +9,8 @@ setup, this is probably fonna suck and i iwll need to change it but here is how 
 
 troubleshooting, probbaly sucks but will need to change it if this project grows -> bluetooth car off, check to see if test.py runs, try running a few times, see which message it gets stuck on. i will develop this more in the future again. i tested it out on one car and computer.
 
+want  to get it out for jetson nano but arm core compataibility will be hard but its first on the list
 
-
-
+mention the words elm327, ISO something, miso can stuff. 
 
 Turns out the goddamn connection doesnt work if your car has bluetooth on!!!!
