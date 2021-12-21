@@ -23,15 +23,12 @@ This setup procedure will likely go through edits as I test ElectronOBD on more 
 
 ## Troubleshooting
 This section will probably also go through edits as I test ElectronOBD on other laptops and people actually start to use this thing.
+- Make sure test.py works properly.
+- Sometimes Python-OBD does not connect to your laptop's serial port properly if you have your car's bluetooth speaker connected to your phone. (Interesting, right?). Check device manager on Windows and under Serial Ports, see if your OBD-II USB serial connection is visible.
+- If Electron-OBD is displaying a black screen (after displaying the welcome page) but you can see data being printed to the console, then restart the app and try again.
 
 ## The future
 I want to make this compatible with my NVIDIA Jetson Nano and that would've been pretty simple, but the issue is that its processor is an ARM core processor which causes issues with Electron.js since it's not made to work with ARM processors. Besides that, I think adding ML models in the python backend that predict using the real-time car data would also be cool and you could display those predictions on a Flask web app or something. Also, I hope the code isn't too hard to modify or understand. One thing I had trouble with was IPC between Python and Node.js, but I got through it thanks to lovely internet communities.
 Ideally, I just want to see people using this to do cool things with their car data or just collecting data for fun. Self-driving cars don't use internal sensor data I believe, but maybe this could help with that some day if possible.
 
-troubleshooting, probbaly sucks but will need to change it if this project grows -> bluetooth car off, check to see if test.py runs, try running a few times, see which message it gets stuck on. i will develop this more in the future again. i tested it out on one car and computer.
 
-want  to get it out for jetson nano but arm core compataibility will be hard but its first on the list
-
-mention the words elm327, ISO something, miso can stuff. 
-
-Turns out the goddamn connection doesnt work if your car has bluetooth on!!!!
