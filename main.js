@@ -6,16 +6,16 @@ let {PythonShell} = require('python-shell')
 
 // let shell1 = new PythonShell('python_engine/getMetadata.py', {
 //     pythonOptions: ['-u']
-// }); //this shell variable declaration here is a game changer
+// }); 
 
-let shell1 = new PythonShell('getData.py', {
+let shell1 = new PythonShell('python_engine/getData.py', {
     pythonOptions: ['-u'], 
     mode: 'json'
 }); //this shell variable declaration here is a game changer
 
 function createWindow () {
   // Create the browser window.
-  console.log("HELLO FROM MAIN.JS");
+  console.log("HELLO ELECTRONOBD USER. Data received from python (sensor units, description and values) will be printed here as well as in the client side.");
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -29,7 +29,6 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
-
 
 
   // Open the DevTools.
@@ -59,121 +58,10 @@ app.on('window-all-closed', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-//IPC TUTORIAL
-
-// ipcMain.on('open-error-dialog', function(event){
-//   // dialog.showErrorBox('An error message', 'body of error msg')
-//   // shell.send('hello')
-//   shell.send("HEELLLOO")
-//   console.log("sent msg from main.js")
-// })
-
-
-
-// PythonShell.run('engine/main.py', optionsConnect, function (err,results) {
-// if (err) throw err;
-// console.log(results[0]);
-// connection = results;
-// console.log('finished connection');
-// });
-
-// shell.on('message', function(message){
-//     console.log("\n")
-//     console.log('message', message.length)
-//     console.log("\n");
-//     console.log("finished")
-
-// })
-
-// while (c < 3){
-//   PythonShell.run('test.py', optionsDataCollect, function (err,results) {
-//   if (err) throw err;
-//   console.log(results);
-//   console.log('finished data collection');
-// });
-//   c = c+1;
-// }
-
-
-// var pyshell = new PythonShell('test.py');
-
-// pyshell.send(JSON.stringify([1,2,3,4,5]));
-
-
-// pyshell.on('message', function (message) {
-//     console.log(message);
-// });
-// pyshell.end(function (err) {
-//     if (err){
-//         throw err;
-//     };
-
-//     console.log('finished');
-// });
-
-
-/////////////////////////////////////////////////////
-
-
-
-// shell2.end(function (err) {
-//     if (err){
-//         throw err;
-//     };
-
-//     console.log('finished');
-// });
-
-
-// shell2.send(JSON.stringify([1,2,3,4,60]));
-
-// shell2.end(function (err) {
-//     if (err){
-//         throw err;
-//     };
-
-//     console.log('finished');
-// });
-////////////////////////////////////////////
-
-// shell1.on('message', function (message) {
-//     console.log(message);
-// });
-
-// ipcMain.on('getMetadata', function(event){
-//   shell2.send("1");
-
-//   shell2.on('message', function (message) {
-//       console.log(message);
-//   });
-
-//   console.log("sent msg from main.js")
-// })
-
-// ipcMain.on('getMetadata', function(event){
-//   PythonShell.run('linkers/getMetadata.py', optionsConnect, function (err, results) {
-//     if (err) throw err;
-//     event.sender.send('getMetadata', results[0])
-//   }); 
-// })
 
 
 
 
-// ipcMain.on('start', function(event){
-//   shell2.on('message', function (message) {
-//       console.log(message);
-//       event.sender.send('start', message)
-//   }); 
-// })
-
-// ipcMain.on('u', function(event){
-//   PythonShell.run('python_engine/getMetadata.py', optionsConnect, function (err, results) {
-//     if (err) throw err;
-//     event.sender.send('getMetadata', results[0])
-//     resolve()
-//   }); 
-// })       
 
 var optionsConnect = {
   mode: 'json'
@@ -194,7 +82,7 @@ function getMetaData() {
           PythonShell.run('python_engine/getMetadata.py', optionsConnect, function (err, results) {
             if (err) throw err;
             console.log(results)
-            event.sender.send('python_engine/getMetadata', results[0])
+            event.sender.send('getMetadata', results[0])
             resolve()
           }); 
         })      
@@ -206,7 +94,7 @@ function getData() {
         ipcMain.on('start', function(event){
           console.log("got the click to start the script")
           shell1.on('message', function (message) {
-            console.log("now returning message from thescript")
+            console.log("now returning message from the script")
             console.log(message);
             // ipcMain.send('start', message)
             event.sender.send('start', message)

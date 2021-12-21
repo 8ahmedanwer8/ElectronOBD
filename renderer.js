@@ -282,16 +282,21 @@ ipc.on('getMetadata', function(event, arg){
 
   unitsList = commandNameUnits
   descList = commandNameDesc;
-  console.log(descList)
+  // console.log(descList)
 
   toggleWelcomePage()
   setMaxDisplay()
 
-  Array.from(gridItem).forEach((gridItem)=> {
-    gridItem.firstChild.nextSibling.textContent = commandNameUnits[ctr];
-    
-    ctr=ctr+1;
+  gridItem.forEach((gridItem,i)=> {
+    gridItem.firstChild.nextSibling.textContent = commandNameUnits[i]; //set units for each sensor
   });
+
+  gridItem.forEach((gridItem)=> {
+    if (gridItem.firstChild.nextSibling.textContent.length > 20){
+      gridItem.firstChild.nextSibling.style.fontSize = "0.85em"       //adjust size if unit name is too long
+    }
+  });
+
   ipc.send('start')
   setStatusMessage("Initiating data collection with car", "red")
 })
@@ -307,15 +312,14 @@ ipc.on('start', function(event,arg){
       ctr=ctr+1;
 
       if (largeGridItem[0].firstChild.textContent.length > 15){//dynamically change size of largeGridItem/modal based on text length
-        largeGridItem[0].firstChild.style.fontSize = "3em"
-        modalContent.style.width = ((largeGridItem[0].firstChild.textContent.length*3.5).toString() + "%")
+        largeGridItem[0].firstChild.style.fontSize = "1em"
+        largeGridItem[0].firstChild.nextSibling.style.fontSize = "1.5em"
       }
-      if (largeGridItem[0].firstChild.textContent.length < 15){
-        modalContent.style.width = ((largeGridItem[0].firstChild.textContent.length*5.5).toString() + "%")
+      else{
+        largeGridItem[0].firstChild.style.fontSize = "5em"
       }
 
-      console.log((largeGridItem[0].firstChild.textContent.length*5.5).toString() + "%")
-      largeGridItem[0].firstChild.textContent = arg[indexOfLargeGridItem];//magical line that shows live update in the pop-up modal
+      largeGridItem[0].firstChild.textContent = arg[indexOfLargeGridItem];//magical line that shows data in the pop-up modal
       
       if (!descCheck.checked){
         largeGridItem[0].firstChild.nextSibling.nextSibling.textContent =  descList[indexOfLargeGridItem] //show description in large grid item as well
@@ -331,8 +335,13 @@ ipc.on('start', function(event,arg){
         h1Tag.textContent = "Too large, click to see"
         h1Tag.style.fontSize = "2em";
       }    
+
       else if (h1Tag.textContent.length > 6 && h1Tag.textContent.length <= 8){
         h1Tag.style.fontSize = "2em";
+      }
+
+      else if (h1Tag.textContent.length > 4 && h1Tag.textContent.length <= 6){
+        h1Tag.style.fontSize = "3.5em";
       }
       else{
         h1Tag.style.fontSize = "4.5em";
