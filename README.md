@@ -1,5 +1,5 @@
 # ElectronOBD99
-## What it is
+#### Demo: Coming soon
 ElectronOBD is a simple but modern-style desktop app that I made for displaying ECU sensor data from your car to a laptop screen in real-time with the option to export to CSV file afterwards for machine learning purposes. It is only supported on Windows for now and not packaged into an .exe file (I think it's better to run it from CMD anyway), but I was able to get the results I wanted from it and so I thought it was a good time to post it. The real magic happens thanks to the Python-OBD API (https://python-obd.readthedocs.io/en/latest/) which interfaces with your car via its OBD-II port and reads data from it. My work here was creating a comprehensive GUI to make the process more user-friendly, free and targeted towards AI. Only thing to buy is the actual OBD-II USB adapter, which should be compatible with most cars, but you can read more about that online.
 
 ## The motivation
