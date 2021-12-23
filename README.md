@@ -1,6 +1,13 @@
 # ElectronOBD
 #### Demo video: Coming soon
 ## What is it
+
+<p float="left">
+  <img src ="promo_stuff/1.png" width = 310></img>
+  <img src ="promo_stuff/2.png" width = 310></img>
+  <img src ="promo_stuff/3.png" width = 310></img>
+</p>
+
 ElectronOBD is a simple, but modern-style desktop app I made for displaying real-time ECU sensor data from my sedan to a laptop screen with CSV file export option for machine learning tasks. It is only supported on Windows for now and not packaged into an .exe file (I think it's better to run it from command line anyway), but I was able to get the results I wanted from it and so I thought it was a good time to post this repo. The real magic happens thanks to the Python-OBD API (https://python-obd.readthedocs.io/en/latest/) which interfaces with the car via its OBD-II port from the laptop's serial port, and retrieves data every second. My work here was creating a fullstack electron app to make the process more user-friendly, free and targeted towards AI. Only thing to buy is the actual OBD-II USB adapter, which should be compatible with most cars, but you can read more about that online.
 
 ## The motivation behind it
