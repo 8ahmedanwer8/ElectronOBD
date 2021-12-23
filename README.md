@@ -22,7 +22,7 @@ This setup procedure will likely go through edits as I test ElectronOBD on more 
 6) If test.py runs as it should and you saw RPM values printed to the console/CMD, then you can ```npm start``` the app and begin data acquisition. The status bar in the bottom should help with what's going on in the backgorund. First ElectronOBD finds all compatible sensors, their units of measurment and their names, then it begins reading and displaying those values. After you are done collecting data, click Export to CSV and a CSV file in your desktop should appear. 
 
 ## Troubleshooting
-This section will probably also go through edits as I test ElectronOBD on other laptops and people actually start to use this thing.
+This section will probably also go through edits as I test ElectronOBD on other laptops and people actually start to use this thing if they do.
 - Make sure test.py works properly.
 - Sometimes Python-OBD does not connect to your laptop's serial port properly if you have your car's bluetooth speaker connected to your phone. (Interesting, right?). Check device manager on Windows and under Serial Ports, see if your OBD-II USB serial connection is visible.
 - If Electron-OBD is displaying a black screen (after displaying the welcome page) but you can see data being printed to the console, then restart the app and try again.
