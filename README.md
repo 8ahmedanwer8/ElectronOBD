@@ -1,5 +1,5 @@
 # ElectronOBD
-#### Demo video: Coming soon
+#### Demo video: https://www.youtube.com/watch?v=pkEYJG_9p7k
 ## What is it
 
 <p float="left">
