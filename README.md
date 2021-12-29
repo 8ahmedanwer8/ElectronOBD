@@ -30,9 +30,10 @@ This setup procedure will likely go through edits as I test ElectronOBD on more 
 
 ## Troubleshooting
 This section will probably also go through edits as I test ElectronOBD on other laptops and people actually start to use this thing if they do.
-- Make sure test.py works properly.
-- Sometimes Python-OBD does not connect to your laptop's serial port properly if you have your car's bluetooth speaker connected to your phone. (Interesting, right?). Check device manager on Windows and under Serial Ports, see if your OBD-II USB serial connection is visible.
-- If Electron-OBD is displaying a black screen (after displaying the welcome page) but you can see data being printed to the console, then restart the app and try again.
+- Make sure test.py works.
+- From my experience, Python-OBD does not connect to your laptop's serial port properly if you have your car's bluetooth speaker connected to your phone and your laptop's bluetooth picks up the connection as a possible serial port to connect to; Python-OBD then gets confused on which serial port to pick (Interesting, right?).
+- Check device manager on Windows and under Serial Ports, see if your OBD-II USB serial connection is visible. It should say COM X, where X is just a number.
+- If Electron-OBD is displaying a black screen (after connecting) but you can see data being printed to the console, then restart the app and try again. This is a UI bug that I haven't figured out yet unfortunately. 
 
 ## The future
 I want to make this compatible with my NVIDIA Jetson Nano and that would've been pretty simple, but the issue is that its processor is an ARM core processor which causes issues with Electron.js since it's not made to work with ARM processors. Besides that, I think adding ML models in the python backend that predict using the real-time car data would also be cool and you could display those predictions on a Flask web app or something. Also, I hope the code isn't too hard to modify or understand. One thing I had trouble with was IPC between Python and Node.js, but I got through it thanks to lovely internet communities.
