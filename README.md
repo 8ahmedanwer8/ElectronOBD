@@ -3,7 +3,7 @@
 ## What is it
 
 <p float="left">
-  <img src ="promo_stuff/ElectronOBD__Opensource_desktop_App_to_read_display_and_ex.gif" width = 930></img>
+  <img src ="promo_stuff/ElectronOBD__Opensource_desktop_App_to_read_display_and_ex.gif" width = 930 alt="demo gif"></img>
   <img src ="promo_stuff/1.png" width = 310></img>
   <img src ="promo_stuff/2.png" width = 310></img>
   <img src ="promo_stuff/3.png" width = 310></img>
